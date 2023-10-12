@@ -150,6 +150,7 @@
             android:layout_marginTop="32dp"
             android:backgroundTint="@android:color/transparent"
             android:src="@drawable/ic_calendar_24"
+            app:tint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textInputLayout3"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
@@ -164,6 +165,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textInputLayout3"
             app:layout_constraintTop_toBottomOf="@+id/appCompatImageButton2"
+            app:tint="@color/white"
             app:srcCompat="@drawable/ic_time_24" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

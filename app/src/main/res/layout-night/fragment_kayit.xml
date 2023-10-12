@@ -127,6 +127,7 @@
             android:backgroundTint="@android:color/transparent"
             android:src="@drawable/ic_calendar_24"
             app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/white"
             app:layout_constraintStart_toEndOf="@+id/textInputLayout3"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
             tools:ignore="MissingConstraints" />
@@ -158,6 +159,7 @@
             android:layout_marginTop="32dp"
             android:background="@android:color/transparent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/white"
             app:layout_constraintStart_toEndOf="@+id/textInputLayoutZamanSec"
             app:layout_constraintTop_toBottomOf="@+id/appCompatImageButton2"
             app:srcCompat="@drawable/ic_time_24" />
