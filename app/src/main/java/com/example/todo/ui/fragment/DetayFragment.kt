@@ -85,4 +85,7 @@ class DetayFragment : Fragment() {
         viewModel.gorevGuncelle(gorev_id,gorev_ad,gorev_detay,gorev_tarih,gorev_saat)
         findNavController().navigate(R.id.detayToAnasayfa)
     }
+    fun btnBack(){
+        findNavController().navigate(R.id.detayToAnasayfa)
+    }
 }

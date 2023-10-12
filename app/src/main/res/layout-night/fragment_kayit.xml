@@ -27,6 +27,7 @@
             android:layout_marginEnd="16dp"
             android:onClick="@{()->kayitFragment.btnKaydet(textInputBaslik.getText().toString(),textInputLayoutDetay.getText().toString(),textInputLayoutZaman.getText().toString(),textInputLayoutSaat.getText().toString())}"
             android:text="Görev Ekle"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayoutZamanSec" />
@@ -37,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="48dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
             android:text="@{gorevEkleTextBaslik}"
@@ -51,8 +52,9 @@
             android:layout_marginTop="48dp"
             android:layout_marginEnd="28dp"
             android:background="@android:color/transparent"
-            android:onClick="@{() -> kayitFragment.btnBack()}"
             android:src="@drawable/ic_clear_24"
+            app:tint="@color/white"
+            android:onClick="@{() -> kayitFragment.btnBack()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

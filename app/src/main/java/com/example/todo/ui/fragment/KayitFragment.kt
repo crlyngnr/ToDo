@@ -83,4 +83,7 @@ class KayitFragment : Fragment() {
         viewModel.gorevKaydet(gorev_ad,gorev_detay,gorev_tarih,gorev_saat)
         findNavController().navigate(R.id.kayitToAnasayfa)
     }
+    fun btnBack(){
+        findNavController().navigate(R.id.kayitToAnasayfa)
+    }
 }

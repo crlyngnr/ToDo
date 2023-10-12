@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
+import androidx.activity.addCallback
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -63,9 +64,9 @@ class AnasayfaFragment : Fragment() {
     fun btnFab(it:View){
         Navigation.findNavController(it).navigate(R.id.kayitGecis)
     }
-
     override fun onResume() {
         super.onResume()
         viewModel.gorevleriYukle()
     }
+
 }

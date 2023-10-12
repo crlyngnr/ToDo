@@ -5,31 +5,36 @@
 
     <data>
         <variable
-            name="gorevEkleTextBaslik"
+            name="gorevDetayTextBaslik"
             type="String" />
         <variable
-            name="kayitFragment"
-            type="com.example.todo.ui.fragment.KayitFragment" />
+            name="gorevDetayFragment"
+            type="com.example.todo.ui.fragment.DetayFragment" />
+        <variable
+            name="gorevNesnesi"
+            type="com.example.todo.data.entity.Gorevler" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.fragment.KayitFragment">
+        tools:context=".ui.fragment.DetayFragment">
+
 
         <Button
-            android:id="@+id/btnAddTask"
+            android:id="@+id/btnUpdateTask"
             style="@style/btnBackground"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:onClick="@{()->kayitFragment.btnKaydet(textInputBaslik.getText().toString(),textInputLayoutDetay.getText().toString(),textInputLayoutZaman.getText().toString(),textInputLayoutSaat.getText().toString())}"
-            android:text="Görev Ekle"
+            android:text="Detay Güncelle"
+            android:onClick="@{()-> gorevDetayFragment.btnGuncelle(gorevNesnesi.gorev_id,textInputTitleBaslik.getText().toString(),textInputLayoutDetay.getText().toString(),textInputLayoutTarih.getText().toString(),textInputLayoutSaat.getText().toString())}"
             app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutZamanSec" />
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
 
         <TextView
             android:id="@+id/textViewBaslik"
@@ -37,10 +42,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="48dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:text="@{gorevEkleTextBaslik}"
+            android:text="@{gorevDetayTextBaslik}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,9 +55,10 @@
             android:layout_height="32dp"
             android:layout_marginTop="48dp"
             android:layout_marginEnd="28dp"
+            android:onClick="@{() -> gorevDetayFragment.btnBack()}"
             android:background="@android:color/transparent"
-            android:onClick="@{() -> kayitFragment.btnBack()}"
             android:src="@drawable/ic_clear_24"
+            app:tint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -69,10 +75,11 @@
             app:layout_constraintTop_toBottomOf="@+id/textViewBaslik">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputBaslik"
+                android:id="@+id/textInputTitleBaslik"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
+                android:text="@{gorevNesnesi.gorev_ad}"
                 android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -92,6 +99,7 @@
                 android:id="@+id/textInputLayoutDetay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@{gorevNesnesi.gorev_detay}"
                 android:layout_weight="2"
                 android:minLines="4"
                 android:scrollbarStyle="outsideOverlay"
@@ -111,26 +119,14 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputLayoutZaman"
+                android:id="@+id/textInputLayoutTarih"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawablePadding="5dp" />
+                android:text="@{gorevNesnesi.gorev_tarih}"
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/appCompatImageButton2"
-            android:layout_width="52dp"
-            android:layout_height="56dp"
-            android:layout_marginTop="32dp"
-            android:backgroundTint="@android:color/transparent"
-            android:src="@drawable/ic_calendar_24"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textInputLayout3"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
-            tools:ignore="MissingConstraints" />
-
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayoutZamanSec"
+            android:id="@+id/textInputLayout4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -144,10 +140,20 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputLayoutSaat"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:drawablePadding="5dp" />
+                android:text="@{gorevNesnesi.gorev_saat}"
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/appCompatImageButton2"
+            android:layout_width="52dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@android:color/transparent"
+            android:src="@drawable/ic_calendar_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textInputLayout3"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+            tools:ignore="MissingConstraints" />
 
         <ImageButton
             android:id="@+id/imageButton2"
@@ -156,7 +162,7 @@
             android:layout_marginTop="32dp"
             android:background="@android:color/transparent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textInputLayoutZamanSec"
+            app:layout_constraintStart_toEndOf="@+id/textInputLayout3"
             app:layout_constraintTop_toBottomOf="@+id/appCompatImageButton2"
             app:srcCompat="@drawable/ic_time_24" />
     </androidx.constraintlayout.widget.ConstraintLayout>
